@@ -2,6 +2,8 @@ import { ResturantCard } from "./resCard"
 import {data} from "../../data" // named export is exported like this.
 import { useEffect, useState } from "react"
 import ShimmerComp from "./shimmer"
+import { Link } from "react-router-dom"
+import {RES_CARD} from "../utils/constants"
 
  const Body=()=>{
     const [resList, setList] = useState([]);
@@ -13,7 +15,7 @@ import ShimmerComp from "./shimmer"
     },[])
 
    const fetchResturantList = async() =>{
-        const resData = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=13.0169992&lng=77.7044335&page_type=DESKTOP_WEB_LISTING");
+        const resData = await fetch(RES_CARD);
         
         const res = await resData.json();
 
@@ -63,12 +65,12 @@ import ShimmerComp from "./shimmer"
                     filterTopRated();
                 }}>Top Rated</button>
             </div>
-            <div className="res-container">
+            <div  className="res-container" >
                 {
                     filterResList.map((d)=>{
                         return(
                            
-                             <ResturantCard data={d} key={d.data.id}/>
+                           <Link className="res-card" key={d.data.id} to={"/resturant/"+d.data.id}><ResturantCard data={d}/></Link>
                        
                         )
                     })

@@ -8,7 +8,7 @@ export const ResturantCard=(props)=>{
 
     } = props.data?.data;
     return(
-        <div className="res-card">
+        <div>
            <img className="res-logo" 
            src={'https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/'+cloudinaryImageId}
            />

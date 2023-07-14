@@ -1,15 +1,18 @@
 import React from "react";
 import Header from "./components/header";
-import Body from "./components/body";
+import { Outlet } from "react-router-dom";
+
 
 const AppLayout = ()=>{
     return(
         <div className="app">
             <Header/>
-            <Body/>
+            <Outlet/>
         </div>
     )
 }
+
+
 
 export default AppLayout;
 
