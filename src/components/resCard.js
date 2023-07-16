@@ -8,14 +8,14 @@ export const ResturantCard=(props)=>{
 
     } = props.data?.data;
     return(
-        <div>
-           <img className="res-logo" 
+        <div className="m-1 p-2 w-28 bg-green-100 rounded-sm hover:bg-green-300">
+           <img className=" rounded-sm"
            src={'https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/'+cloudinaryImageId}
            />
-           <h5>{name}</h5>
-           <h6>{costForTwoString}</h6>
-           <h6>{veg?"VEG":"NON-VEG"}</h6>
-           <h6>{avgRating}</h6>
+           <p className="truncate text-overflow: ellipsis text-base">{name}</p>
+           <p className="text-xs">{costForTwoString}</p>
+           <p className="text-xs">{veg?"VEG":"NON-VEG"}</p>
+           <p className="text-xs">{avgRating}</p>
         </div>
     )
 }
