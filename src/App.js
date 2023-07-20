@@ -5,7 +5,7 @@ import { Outlet } from "react-router-dom";
 
 const AppLayout = ()=>{
     return(
-        <div className="text-base">
+        <div className="font-serifs">
             <Header/>
             <Outlet/>
         </div>

@@ -8,7 +8,7 @@ export const ResturantCard=(props)=>{
 
     } = props.data?.data;
     return(
-        <div className="m-1 p-2 w-28 bg-green-100 rounded-sm hover:bg-green-300">
+        <div className="m-2 p-2 w-28 bg-green-100 rounded-sm hover:bg-green-300">
            <img className=" rounded-sm"
            src={'https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/'+cloudinaryImageId}
            />
@@ -19,3 +19,17 @@ export const ResturantCard=(props)=>{
         </div>
     )
 }
+
+
+
+export const ResCardWithPromoted = (ResturantCard) => {
+   return (props)=>{
+        return(
+        <div>
+            <label className=" bg-black text-white absolute rounded-md p-1 opacity-90 text-xs">Promoted</label>
+            <ResturantCard {...props}/>
+        </div>
+        )
+   }
+}
+ 

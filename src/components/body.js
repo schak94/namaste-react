@@ -1,4 +1,4 @@
-import { ResturantCard } from "./resCard"
+import { ResCardWithPromoted, ResturantCard } from "./resCard"
 import {data} from "../../data" // named export is exported like this.
 import { useEffect, useState } from "react"
 import ShimmerComp from "./shimmer"
@@ -12,6 +12,8 @@ import useOnlineStatus from "../utils/useOnlineStatus"
     const [searchText, setSearchText] = useState("");
 
     const onLine = useOnlineStatus();
+
+    const PromotedCard = ResCardWithPromoted(ResturantCard);
 
     useEffect(()=>{
         fetchResturantList()
@@ -70,12 +72,14 @@ import useOnlineStatus from "../utils/useOnlineStatus"
                     filterTopRated();
                 }}>Top Rated</button>
             </div>
-            <div  className="flex flex-wrap justify-center" >
+            <div  className="flex flex-wrap" >
                 {
                     filterResList.map((d)=>{
                         return(
                            
-                           <Link key={d.data.id} to={"/resturant/"+d.data.id}><ResturantCard data={d}/></Link>
+                           <Link key={d.data.id} to={"/resturant/"+d.data.id}>
+                                {d.data.promoted ? <PromotedCard data={d}/> : <ResturantCard data={d}/>}
+                            </Link>
                        
                         )
                     })
