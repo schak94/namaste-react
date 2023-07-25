@@ -1,6 +1,17 @@
-//import { IMAGE_LINK } from "../utils/constants";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {addItem} from "../utils/carSlice";
+
 
 const MenuList = ({ item }) => {
+  const dispatch = useDispatch();
+
+  const cart = useSelector(state=> state.cart.items)
+
+  const handleCart = (val)=>{
+    dispatch(addItem(val))
+  }
+
   console.log(item.card);
   return (
     <div className="text-left border-b-2 border-green-200 p-1 m-1 flex">
@@ -16,7 +27,7 @@ const MenuList = ({ item }) => {
         </div>
         <p className="text-xs">{item.card.info.description}</p>
       </div>
-      <div className="p-1 w-3/12">
+      <div className="p-1 w-3/12 flex justify-center self-start items-end">
         <img
           className="rounded-sm"
           src={
@@ -24,6 +35,9 @@ const MenuList = ({ item }) => {
             item.card.info.imageId
           }
         />
+        <button onClick={()=>{
+          handleCart(item)
+        }} className=" bg-black text-white absolute rounded-md px-1 opacity-90 text-xs content-center">Add+{cart.length? cart.length: ""}</button>
       </div>
     </div>
   );

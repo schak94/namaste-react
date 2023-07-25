@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import { useSelector } from "react-redux";
 
  const Header=()=>{
     const [loginButton, setLogin] = useState("Login");
+    const cart= useSelector(state => state.cart.items);
     const onLine = useOnlineStatus();
     return(
         <div className=" bg-green-200 flex justify-between py-1 mb-1 shadow-lg shadow-green-200/50">
@@ -16,7 +18,7 @@ import useOnlineStatus from "../utils/useOnlineStatus";
                     <li className="px-2 text-sm"> <Link to="/">Home</Link></li>
                     <li className="px-2 text-sm"> <Link to="/about">About</Link></li>
                     <li className="px-2 text-sm"> <Link to="/contact">Contact Us</Link></li>
-                    <li className="px-2 text-sm"> <Link to="/">Cart</Link></li>
+                    <li className="px-2 text-sm"> <Link to="/cart">Cart-{cart.length}</Link></li>
                     <button className="text-sm px-4" onClick={()=>{
                         setLogin((pre)=>{
                             return pre==="Login"?"Logout":"Login";
