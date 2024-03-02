@@ -24,8 +24,8 @@ import useOnlineStatus from "../utils/useOnlineStatus"
         
         const res = await resData.json();
 
-        setList(res?.data?.cards[2]?.data?.data?.cards); 
-        setFilterList(res?.data?.cards[2]?.data?.data?.cards)
+        setList(res?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants); 
+        setFilterList(res?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
 
    }
 
@@ -77,8 +77,8 @@ import useOnlineStatus from "../utils/useOnlineStatus"
                     filterResList.map((d)=>{
                         return(
                            
-                           <Link key={d.data.id} to={"/resturant/"+d.data.id}>
-                                {d.data.promoted ? <PromotedCard data={d}/> : <ResturantCard data={d}/>}
+                           <Link key={d.info.id} to={"/resturant/"+d.info.id}>
+                                {d.info.promoted ? <PromotedCard data={d}/> : <ResturantCard data={d}/>}
                             </Link>
                        
                         )

@@ -6,7 +6,7 @@ export const ResturantCard=(props)=>{
         avgRating,
         cloudinaryImageId
 
-    } = props.data?.data;
+    } = props.data?.info;
     return(
         <div className="m-2 p-2 w-28 bg-green-100 rounded-sm hover:bg-green-300">
            <img className=" rounded-sm"
